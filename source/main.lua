@@ -1,22 +1,25 @@
-import "dvd" -- DEMO
-local dvd = dvd(1, -1) -- DEMO
+import "tile"
+local firstTile = tile(0, 0)
+local secondTile = tile(64, 0)
 
 local gfx <const> = playdate.graphics
-local font = gfx.font.new('font/Mini Sans 2X') -- DEMO
 
 local function loadGame()
 	playdate.display.setRefreshRate(50) -- Sets framerate to 50 fps
 	math.randomseed(playdate.getSecondsSinceEpoch()) -- seed for math.random
-	gfx.setFont(font) -- DEMO
 end
 
 local function updateGame()
-	dvd:update() -- DEMO
+	if playdate.buttonJustPressed(playdate.kButtonA) then
+		firstTile:randomizeImage()
+		secondTile:randomizeImage()
+	end
 end
 
 local function drawGame()
 	gfx.clear() -- Clears the screen
-	dvd:draw() -- DEMO
+	firstTile:draw()
+	secondTile:draw()
 end
 
 loadGame()
