@@ -1,0 +1,5 @@
+{
+  "playdate-debug.sourcePath": "source",
+  "playdate-debug.outputPath": "build",
+  "playdate-debug.productName": "pd-zero"
+}
